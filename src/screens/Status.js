@@ -1,9 +1,19 @@
 import React from "react";
-import { View, Text, FlatList, Image, TouchableHighlight, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native";
 import { DISCUSSIONS } from "../data";
 import { Colors } from "../styles/Colors";
-import { MaterialCommunityIcons, MaterialIcons, Octicons } from "@expo/vector-icons";
-
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+} from "@expo/vector-icons";
 
 const VflatListItem = ({ item }) => {
   return (
@@ -67,15 +77,32 @@ const FlatListHeader = () => {
         }}
       >
         <>
-          <Image
-            style={{
-              height: 55,
-              width: 55,
-              borderRadius: 55 / 2,
-              alignSelf: "center",
-            }}
-            source={require("../assets/1617208100000.jpg")}
-          />
+          <View>
+            <Image
+              style={{
+                height: 55,
+                width: 55,
+                borderRadius: 55 / 2,
+                alignSelf: "center",
+              }}
+              source={require("../assets/1617208100000.jpg")}
+            />
+            <TouchableOpacity
+              style={{
+                height: 30,
+                width: 30,
+                backgroundColor: Colors.tealGreen,
+                borderRadius: 30 / 2,
+                borderColor: "#FFF",
+                borderWidth: 3,
+                position: "absolute",
+                bottom: 0,
+                right: -10
+              }}
+            >
+              <MaterialIcons name="add" color="#FFF" size={22} />
+            </TouchableOpacity>
+          </View>
           <View style={{ flex: 1, marginLeft: 20 }}>
             <Text style={{ fontWeight: "bold", fontSize: 17 }}>Mon statut</Text>
             <Text style={{ color: Colors.GRAY_DARK }}>
@@ -101,7 +128,7 @@ const Status = () => {
         ListHeaderComponent={<FlatListHeader />}
         ListHeaderComponentStyle={{}}
       />
-       <TouchableOpacity
+      <TouchableOpacity
         style={{
           height: 40,
           width: 40,
